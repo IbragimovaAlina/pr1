@@ -61,7 +61,6 @@ class Shell:
             self.execute(tokens)
         print("Shell session ended.")
 
-
 if __name__ == "__main__":
     shell = Shell()
     shell.run()
