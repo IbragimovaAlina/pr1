@@ -1,0 +1,4 @@
+ls -l /some/path
+cd $HOME
+invalid-command with args
+ls
