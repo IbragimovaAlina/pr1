@@ -1,0 +1,19 @@
+ls -l /some/path $HOME
+not-a-real-command
+
+ls
+ls /home/user/docs
+
+cd /home/user/docs
+ls
+
+cd ..
+ls
+
+ls non_existent_dir
+cd /home/fake_user
+
+cd /etc/os.conf
+
+vfs-init
+ls

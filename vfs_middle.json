@@ -1,0 +1,17 @@
+{
+  "type": "directory",
+  "children": {
+    "welcome.txt": {
+      "type": "file",
+      "content": "SGVsbG8gZnJvbSBVSlMh"
+    },
+    "config": {
+      "type": "directory",
+      "children": {}
+    },
+    "secret.dat": {
+      "type": "file",
+      "content": "VGhpcyBpcyBhIHNlY3JldC4="
+    }
+  }
+}

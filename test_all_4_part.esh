@@ -1,0 +1,11 @@
+echo
+echo Hello World!
+cd /home/user/docs
+tail report.txt
+tail -n 5 report.txt
+tail non_existent_file.txt
+tail /home/user
+tail -n foo report.txt
+tail
+clear
+exit

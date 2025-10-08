@@ -1,0 +1,37 @@
+{
+  "type": "directory",
+  "children": {
+    "home": {
+      "type": "directory",
+      "children": {
+        "user": {
+          "type": "directory",
+          "children": {
+            "docs": {
+              "type": "directory",
+              "children": {
+                "report.txt": {
+                  "type": "file",
+                  "content": "VGhpcyBpcyBhIHJlcG9ydC4="
+                }
+              }
+            },
+            "readme.txt": {
+              "type": "file",
+              "content": "UmVhZCBNRQ=="
+            }
+          }
+        }
+      }
+    },
+    "etc": {
+      "type": "directory",
+      "children": {
+        "os.conf": {
+          "type": "file",
+          "content": "U0hFTEw9L2Jpbi9tc3No"
+        }
+      }
+    }
+  }
+}

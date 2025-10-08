@@ -1,0 +1,7 @@
+ls
+cd
+ls -l /tmp
+cd directory
+ls $HOME
+ls $USER $HOME
+exit

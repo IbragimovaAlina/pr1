@@ -1,0 +1,5 @@
+ls -l /some/path
+cd $HOME
+someCommand
+ls
+exit

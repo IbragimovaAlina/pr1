@@ -4,8 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7982b8ef-ccdb-4bb4-ad45-c6f2c5f151ee" name="Changes" comment="part 1 ready">
-      <change afterPath="$PROJECT_DIR$/test.esh" afterDir="false" />
+    <list default="true" id="7982b8ef-ccdb-4bb4-ad45-c6f2c5f151ee" name="Changes" comment="part 2 ready">
+      <change afterPath="$PROJECT_DIR$/test_all_1_part.esh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_all_2_part.esh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_all_3_part.esh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_all_4_part.esh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_all_5_part.esh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vfs_max.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vfs_middle.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vfs_min.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -38,14 +45,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Alina/PycharmProjects/pr_1_Ibragimova"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Alina/PycharmProjects/pr_1_Ibragimova&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="pr_1_Ibragimova" />
@@ -63,7 +70,7 @@
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="EMULATE_TERMINAL" value="true" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
@@ -110,7 +117,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759695330932</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="part 2 ready">
+      <option name="closed" value="true" />
+      <created>1759751312894</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1759751312894</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -128,15 +143,16 @@
     <MESSAGE value="start" />
     <MESSAGE value="part 1" />
     <MESSAGE value="part 1 ready" />
-    <option name="LAST_COMMIT_MESSAGE" value="part 1 ready" />
+    <MESSAGE value="part 2 ready" />
+    <option name="LAST_COMMIT_MESSAGE" value="part 2 ready" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>30</line>
-          <option name="timeStamp" value="2" />
+          <line>179</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
