@@ -92,16 +92,8 @@ class Shell:
 
     def cmd_exit(self, args):
         print("Shutting down the emulator.")
-        # try:
-        #     exit_code = int(args[0]) if args else 0
-        #     sys.exit(exit_code)
         sys.exit(0)
 
-        # except ValueError:
-        #     print("Error: exit code must be an integer.")
-        #     sys.exit(1)
-        # except IndexError:
-        #     sys.exit(0)
 
     def parse_line(self, line):
         expanded_line = re.sub(r'\$(\w+)', lambda m: os.getenv(m.group(1), ''), line)
@@ -181,6 +173,7 @@ if __name__ == "__main__":
     script = input()
     parser = argparse.ArgumentParser(description="A simple shell emulator.")
     parser.add_argument('-v', '--vfs-path', default="vfs_max.json", help="Path to the virtual file system's physical location. Default is the current directory.")
+    # while (true):
     if script != "-":
         parser.add_argument('-s', '--startup-script', default=script, help="Path to a startup script with commands to execute.")
     else:
