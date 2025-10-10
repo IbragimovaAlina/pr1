@@ -118,13 +118,14 @@ class Shell:
         sys.exit(0)
 
     def cmd_clear(self, args):
-        try:
-            if os.name == 'nt':
-                os.system('cls')
-            else:
-                os.system('clear')
-        except:
-            print("\n" * 50)
+        # try:
+        #     if os.name == 'nt':
+        #         os.system('cls')
+        #     else:
+        #         os.system('clear')
+        # except:
+        #     print("\n" * 50)
+        print("\n" * 50)
     def cmd_echo(self, args):
         print(" ".join(args))
 
