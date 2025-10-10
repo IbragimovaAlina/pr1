@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7982b8ef-ccdb-4bb4-ad45-c6f2c5f151ee" name="Changes" comment="part 3">
+    <list default="true" id="7982b8ef-ccdb-4bb4-ad45-c6f2c5f151ee" name="Changes" comment="part 3 ready">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_all_3_part.esh" beforeDir="false" afterPath="$PROJECT_DIR$/test_all_3_part.esh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vfs_max.json" beforeDir="false" afterPath="$PROJECT_DIR$/vfs_max.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -127,7 +126,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759951348944</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="part 3 ready">
+      <option name="closed" value="true" />
+      <created>1759993483211</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1759993483211</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -147,14 +154,15 @@
     <MESSAGE value="part 1 ready" />
     <MESSAGE value="part 2 ready" />
     <MESSAGE value="part 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="part 3" />
+    <MESSAGE value="part 3 ready" />
+    <option name="LAST_COMMIT_MESSAGE" value="part 3 ready" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>171</line>
+          <line>238</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

@@ -1,3 +1,4 @@
+import base64
 import os
 import sys
 import shlex
@@ -17,6 +18,9 @@ class Shell:
             "cd": self.cmd_cd,
             "exit": self.cmd_exit,
             "vfs-init": self.cmd_vfs_init,
+            "clear": self.cmd_clear,
+            "tail": self.cmd_tail,
+            "echo": self.cmd_echo,
         }
 
     def load_vfs(self):
@@ -85,15 +89,78 @@ class Shell:
         print("VFS has been reset.")
 
     def cmd_ls(self, args):
-        print("Command: ls; " + f"arguments: {args}")
-
+        path = args[0] if args else '.'
+        target_node = self.resolve_path(path)
+        if not target_node:
+            print(f"ls: cannot access '{path}': No such file or directory")
+            return
+        if target_node['type'] != 'directory':
+            path_parts = path.rstrip('/').split('/')
+            print(path_parts[-1])
+            return
+        for name, node in sorted(target_node['children'].items()):
+            suffix = '/' if node['type'] == 'directory' else ''
+            print(f"{name}{suffix}")
     def cmd_cd(self, args):
-        print("Command: cd; " + f"arguments: {args}")
-
+        if not args:
+            self.cwd_node = self.vfs_root
+            return
+        path = args[0]
+        target_node = self.resolve_path(path)
+        if not target_node:
+            print(f"cd: no such file or directory: {path}")
+        elif target_node['type'] != 'directory':
+            print(f"cd: not a directory: {path}")
+        else:
+            self.cwd_node = target_node
     def cmd_exit(self, args):
         print("Shutting down the emulator.")
         sys.exit(0)
 
+    def cmd_clear(self, args):
+        try:
+            if os.name == 'nt':
+                os.system('cls')
+            else:
+                os.system('clear')
+        except:
+            print("\n" * 50)
+    def cmd_echo(self, args):
+        print(" ".join(args))
+
+    def cmd_tail(self, args):
+        num_lines = 10
+        path = None
+        if not args:
+            print("tail: missing file operand")
+            return
+
+        if len(args) >= 3 and args[0] == '-n':
+            try:
+                num_lines = int(args[1])
+                path = args[2]
+            except ValueError:
+                print(f"tail: invalid number of lines: '{args[1]}'")
+                return
+            except IndexError:
+                print("tail: option requires an argument -- 'n'")
+                return
+        else:
+            path = args[-1]
+
+        target_node = self.resolve_path(path)
+        if not target_node:
+            print(f"tail: cannot open '{path}' for reading: No such file or directory")
+        elif target_node['type'] == 'directory':
+            print(f"tail: error reading '{path}': Is a directory")
+        else:
+            try:
+                content = base64.b64decode(target_node['content']).decode('utf-8')
+                lines = content.splitlines()
+                for line in lines[-num_lines:]:
+                    print(line)
+            except Exception:
+                print(f"tail: {path}: Cannot decode or read content")
 
     def parse_line(self, line):
         expanded_line = re.sub(r'\$(\w+)', lambda m: os.getenv(m.group(1), ''), line)
