@@ -1,0 +1,74 @@
+
+echo "====== ЗАПУСК КОМПЛЕКСНОГО ТЕСТИРОВАНИЯ ======"
+
+
+echo "--> Тест раскрытия переменной окружения"
+echo "Hello, $USER!"
+
+echo "--> Тест обработки неизвестной команды"
+this-is-not-a-real-command with args
+
+
+echo "--> Сам факт выполнения этого скрипта уже тестирует функциональность Этапа 2."
+
+
+echo "--> Начальное состояние VFS:"
+ls
+
+echo "--> Навигация (cd) (ls):"
+cd /home/user/docs
+ls
+
+
+
+echo "--> Навигация вверх (cd ..):"
+cd ../..
+echo "--> Текущий каталог после cd ../.. :"
+ls
+
+echo "--> Тест ошибок VFS:"
+ls /no/such/directory
+cd /etc/os.conf
+
+
+echo "--> Тест команды tail (по умолчанию 10 строк):"
+tail /home/user/docs/report.txt
+
+echo "--> Тест команды tail с флагом -n:"
+tail -n 4 /home/user/docs/report.txt
+
+echo "--> Тест ошибок команды tail:"
+tail -n not_a_number /etc/os.conf
+tail /home/user
+
+echo "--> Тест команды clear:"
+clear
+echo "Экран был очищен. Но консоль PyCharm не поддерживает clear, поэтому были выведены просто пробелы."
+
+
+cd /
+echo "--> Тест mkdir:"
+mkdir test_dir
+echo "--> VFS после создания test_dir:"
+ls
+
+echo "--> Тест mkdir -p:"
+mkdir -p /var/data/logs
+echo "--> VFS после создания /var/data/logs:"
+ls /var/data
+
+echo "--> Тест ошибок mkdir:"
+mkdir test_dir
+mkdir /etc/os.conf/new
+mkdir /no/such/parent/new_dir
+
+echo "--> Финальное состояние VFS перед сбросом:"
+ls
+ls /var/data
+
+echo "--> Тест vfs-init:"
+vfs-init
+echo "--> Состояние VFS после сброса:"
+ls
+
+echo "====== ТЕСТИРОВАНИЕ ЗАВЕРШЕНО ======"
