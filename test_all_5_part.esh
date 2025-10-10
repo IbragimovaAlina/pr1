@@ -1,0 +1,30 @@
+
+ls
+echo " "
+
+mkdir temp_dir
+ls
+cd temp_dir
+cd ..
+echo " "
+
+mkdir /etc/new_config
+ls /etc
+echo " "
+
+mkdir temp_dir
+mkdir /etc/os.conf
+mkdir /home/unreal/folder
+mkdir /etc/another_dir temp_dir /etc/yet_another
+ls /etc
+echo " "
+
+ls /
+mkdir -p /media/storage/downloads/2025
+ls /
+ls /media
+ls /media/storage
+ls /media/storage/downloads
+ls /media/storage/downloads/2025
+ls
+

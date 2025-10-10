@@ -21,8 +21,58 @@ class Shell:
             "clear": self.cmd_clear,
             "tail": self.cmd_tail,
             "echo": self.cmd_echo,
+            "mkdir": self.cmd_mkdir,
+
         }
 
+    def cmd_mkdir(self, args):
+        if not args:
+            print("mkdir: missing operand")
+            return
+
+        parents = False
+        if '-p' in args or '--parents' in args:
+            parents = True
+            args = [arg for arg in args if arg not in ('-p', '--parents')]
+
+        if not args:
+            print("mkdir: missing operand after options")
+            return
+
+        for path in args:
+            path = path.rstrip('/')
+            if not path: continue
+            if self.resolve_path(path):
+                print(f"mkdir: cannot create directory ‘{path}’: File exists")
+                continue
+
+            parent_path = os.path.dirname(path) or '.'
+            dir_name = os.path.basename(path)
+
+            parent_node = self.resolve_path(parent_path)
+
+            if parent_node and parent_node['type'] == 'directory':
+                parent_node['children'][dir_name] = {
+                    "type": "directory", "children": {}, "parent": parent_node
+                }
+            elif parents:
+                current_node = self.vfs_root if path.startswith('/') else self.cwd_node
+                parts = path.strip('/').split('/')
+
+                path_built = ""
+                for part in parts:
+                    path_built = path_built.strip('/') + "/" + part
+                    node = self.resolve_path(path_built)
+                    if not node:
+                        current_node['children'][part] = {
+                            "type": "directory", "children": {}, "parent": current_node
+                        }
+                        current_node = current_node['children'][part]
+                    else:
+                        current_node = node
+
+            else:
+                print(f"mkdir: cannot create directory ‘{path}’: No such file or directory")
     def load_vfs(self):
         try:
             with open(self.physical_vfs_path, 'r', encoding='utf-8') as f:
@@ -191,9 +241,7 @@ class Shell:
                     line = line.strip()
                     if not line or line.startswith('#'):
                         continue
-                    # prompt = f"{self.vfs_name}> "
                     prompt = f"[{self.vfs_name}{self.get_path_str(self.cwd_node)}]$ "
-
                     print(f"{prompt}{line}")
                     if ("$USER" in line):
                         line = line.replace("$USER", "$USERNAME")
@@ -216,9 +264,7 @@ class Shell:
         print("\nWelcome to the simple shell emulator! Type 'exit' to quit.")
         while True:
             try:
-                # prompt = f"{self.vfs_name}> "
                 prompt = f"[{self.vfs_name}{self.get_path_str(self.cwd_node)}]$ "
-
                 line = input(prompt)
                 if ("$USER" in line):
                     line = line.replace("$USER", "$USERNAME")
@@ -241,7 +287,6 @@ if __name__ == "__main__":
     script = input()
     parser = argparse.ArgumentParser(description="A simple shell emulator.")
     parser.add_argument('-v', '--vfs-path', default="vfs_max.json", help="Path to the virtual file system's physical location. Default is the current directory.")
-    # while (true):
     if script != "-":
         parser.add_argument('-s', '--startup-script', default=script, help="Path to a startup script with commands to execute.")
     else:
