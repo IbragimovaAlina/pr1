@@ -330,3 +330,6 @@ VFS has been reset.
 [vfs_max.json/]$ echo "====== ТЕСТИРОВАНИЕ ЗАВЕРШЕНО ======"
 "====== ТЕСТИРОВАНИЕ ЗАВЕРШЕНО ======"
 Startup script finished
+
+Welcome to the simple shell emulator! Type 'exit' to quit.
+[vfs_max.json/]$
